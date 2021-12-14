@@ -1,7 +1,7 @@
 import axios from "axios";
-import queryString from 'queryString';
+import queryString from 'querystring';
 
-import apiConfig from "./apiCOnfig";
+import apiConfig from "./apiConfig";
 
 const axiosClient = axios.create({
     baseURL: apiConfig.baseUrl,

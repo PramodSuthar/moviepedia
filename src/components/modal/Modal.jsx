@@ -32,10 +32,17 @@ export const ModalContent = props => {
         if (props.onClose) props.onClose();
     }
     return (
-        <div className="modal__content">
-
+        <div ref={contentRef} className="modal__content">
+            {props.children}
+            <div className="modal__content__close" onClick={closeModal}>
+                <i className="bx bx-x"></i>
+            </div>
         </div>
     )
+}
+
+ModalContent.propTypes = {
+    onClose: PropTypes.func
 }
 
 export default Modal

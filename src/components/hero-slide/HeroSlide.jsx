@@ -21,7 +21,7 @@ const HeroSlide = () => {
             const params = { page: 1 }
             try {
                 const response = await tmdbApi.getMoviesList(movieType.popular, { params });
-                setMovieItems(response.results.slice(0, 5));
+                setMovieItems(response.results.slice(1, 4));
                 console.log(response);
             } catch {
                 console.log('error');
@@ -72,14 +72,15 @@ const HeroSlideItem = props => {
             const videSrc = 'https://www.youtube.com/embed/' + videos.results[0].key;
             modal.querySelector('.modal__content > iframe').setAttribute('src', videSrc);
         } else {
-            modal.querySelector('.modal__content').innerHTML = 'No trailer'
+            modal.querySelector('.modal__content').innerHTML = 'No trailer';
         }
 
         modal.classList.toggle('active');
     }
 
     return (
-        <div className={`hero-slide__item ${props.className}`}
+        <div
+            className={`hero-slide__item ${props.className}`}
             style={{ backgroundImage: `url(${background})` }}
         >
             <div className="hero-slide__item__content container">
